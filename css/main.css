@@ -15,7 +15,7 @@ body {
 :root {
     --main-color: #10cab7;
     --secondry-color: #2c4755;
-    --section-padding: 60px;
+    --section-padding: 50px;
     --section-background: #f6f6f6;
     --third-color: #777;
 }
@@ -121,14 +121,22 @@ body {
     position: absolute;
     right: 0;
     top: calc(100% + 15px);
-    display: none;
-    z-index: 1;
+    /* display: none; */
+    transition: 0.3s;
+    opacity: 0;
+    z-index: 111;
+    visibility: hidden;
+}
+
+.header .links ul.active {
+    opacity: 1;
+    visibility: visible;
 
 }
 
-.header .links:hover ul {
+/* .header .links:hover ul {
     display: block;
-}
+} */
 
 .header .links ul::before {
     content: "";
@@ -416,6 +424,7 @@ body {
 .contact .info {
     padding-top: var(--section-padding);
     padding-bottom: var(--section-padding);
+    text-align: center;
 }
 
 .contact .label {
@@ -437,6 +446,7 @@ body {
 .contact .info .social {
     display: flex;
     justify-content: flex-start;
+    justify-content: center;
     margin-top: 28px;
     font-size: 16px;
 }
@@ -476,16 +486,35 @@ body {
     font-weight: bold;
 }
 
-.contact button {
-    position: absolute;
-    right: 4px;
-    bottom: 3px;
+.btn-up {
+    position: fixed;
+    right: -40px;
+    bottom: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 111;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
     background-color: var(--main-color);
-
+    i {
+        font-size: 15px;
+        color: #fff;
+    }
+}
+.btn-up:hover {
+    transform: scale(1.06);
+}
+.btn-up.show {
+    right: 15px;
 }
 
 .contact a {
-    text-decoration: none;
     color: var(--secondry-color);
+    text-decoration: none;
     padding: 10px 1px;
 }
